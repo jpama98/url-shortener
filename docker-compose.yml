@@ -22,5 +22,6 @@ services:
       DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/urlshort
       REDIS_URL: redis://redis:6379/0
       BASE_URL: http://localhost:8000
+      JWT_SECRET_KEY: devsecret_change_me
     ports:
       - "8000:8000"

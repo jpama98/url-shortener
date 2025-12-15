@@ -25,3 +25,19 @@ docker compose up --build
 
 ## API Docs
 http://localhost:8000/docs
+## Migrations (Alembic)
+```bash
+# 1) start postgres + redis
+docker compose up -d db redis
+
+# 2) run migrations (local)
+alembic upgrade head
+```
+
+## Auth + Per-user Dashboard
+- Register/Login with JWT access + refresh tokens
+- Short URLs are owned by a user
+- Dashboard: `/api/dashboard/summary`
+
+## Background Click Logging (Async Redis Queue)
+Redirects enqueue click events into Redis (fast), and a background worker persists them to Postgres.
